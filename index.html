@@ -95,6 +95,14 @@
         </div>
 
         <div id="pane-scanner" role="tabpanel" aria-label="Breed scanner">
+        <div class="species-row">
+          <span class="species-caption">I am scanning a</span>
+          <div class="tabs segmented" role="group" aria-label="Pet species">
+            <button class="tab active" data-species="auto" aria-pressed="true">Auto</button>
+            <button class="tab" data-species="cat" aria-pressed="false">Cat</button>
+            <button class="tab" data-species="dog" aria-pressed="false">Dog</button>
+          </div>
+        </div>
         <div class="tabs sub-tabs" role="tablist" aria-label="Scanner mode">
           <button class="tab active" id="tab-camera" role="tab" aria-selected="true">Live camera</button>
           <button class="tab" id="tab-upload" role="tab" aria-selected="false">Upload photo</button>

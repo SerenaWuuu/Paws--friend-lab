@@ -139,6 +139,14 @@ p { margin: 0 0 1em; }
 .tab.active { background: var(--cream); color: var(--ink); border-color: var(--cream); }
 .tab:not(.active):hover { border-color: rgba(255,248,240,0.5); }
 
+.species-row {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.7rem; margin-bottom: 1rem; flex-wrap: wrap;
+}
+.species-caption { font-size: 0.95rem; opacity: 0.85; font-weight: 600; }
+.species-row .tabs.segmented { margin-bottom: 0; }
+.species-row .tabs.segmented .tab { flex: none; padding: 0.55rem 1.1rem; font-size: 0.92rem; border-radius: 999px; }
+
 .stage {
   position: relative; background: #1a130d; border-radius: var(--radius);
   overflow: hidden; min-height: 300px; display: flex; align-items: center; justify-content: center;

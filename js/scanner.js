@@ -13,8 +13,11 @@
   var CLIP_MODEL_ID = "Xenova/clip-vit-base-patch32";
   var TOP_K = 8;
   var MIN_CONFIDENCE = 0.12;
-  var DOG_CONFIDENT = 0.2;
+  var DOG_CONFIDENT = 0.55;
   var WILD_CONFIDENT = 0.5;
+  /* Owner-correctable species override: "auto" trusts the model,
+   * "cat"/"dog" force the breed expert / dog path directly. */
+  var speciesMode = "auto";
   var LOOP_MS = 1000;
   var CLIP_MS = 2000;
 
@@ -159,6 +162,9 @@
    * feline goes to the CLIP breed expert. Anything else keeps the old
    * honest "not sure" behavior instead of forcing a guess. */
   function decideRoute(pets) {
+    /* Manual override always wins: the owner knows their pet. */
+    if (speciesMode === "cat") return "cat";
+    if (speciesMode === "dog") return "dog";
     if (!pets.length) return "none";
     var top = pets[0];
     if (top.species === "wild" && top.probability >= WILD_CONFIDENT) return "wild";
@@ -601,6 +607,21 @@
   function init() {
     $("tab-camera").addEventListener("click", function () { switchMode("camera"); });
     $("tab-upload").addEventListener("click", function () { switchMode("upload"); });
+    /* Species override: Auto / Cat / Dog. Switching clears the last CLIP
+     * answer so a stale result never survives a mode change. */
+    var spBtns = document.querySelectorAll('[data-species]');
+    Array.prototype.forEach.call(spBtns, function (btn) {
+      btn.addEventListener("click", function () {
+        Array.prototype.forEach.call(spBtns, function (b) {
+          b.classList.remove("active");
+          b.setAttribute("aria-pressed", "false");
+        });
+        btn.classList.add("active");
+        btn.setAttribute("aria-pressed", "true");
+        speciesMode = btn.getAttribute("data-species");
+        lastClipPets = null;
+      });
+    });
     $("flip-camera").addEventListener("click", flipCamera);
     $("stop-camera").addEventListener("click", function () {
       stopCamera();
