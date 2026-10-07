@@ -40,7 +40,7 @@ Note: `getUserMedia` (live camera mode) requires a secure context. On `localhost
 
 ## Deploy to GitHub Pages
 
-1. Push this folder's contents to the `main` branch of `SerenaWuu/Paws--friend-lab`.
+1. Push this folder's contents to the `main` branch of  `SerenaWuuu/Paws--friend-lab`.
 2. On GitHub, go to **Settings → Pages**.
 3. Under **Build and deployment**, set **Source** to **Deploy from a branch**, branch `main`, folder `/(root)`.
 4. Save. The site goes live at `https://serenawuu.github.io/Paws--friend-lab/` within a minute or two.
@@ -53,10 +53,10 @@ Each future tool gets its own repo (all open source, MIT):
 
 | Tool | Repo | What it does |
 |------|------|--------------|
-| Data Toybox | `SerenaWuu/data-toybox` | CSV visualizer, SQL formatter, plain-English to SQL helper |
-| Star Gazer | `SerenaWuu/star-gazer` | Tonight's sky chart + night-sky photo mode |
-| Cloud Toolkit | `SerenaWuu/cloud-toolkit` | BigQuery/Azure Synapse cost estimator, resource naming helper |
-| Cat Care Log | `SerenaWuu/cat-care-log` | Feeding/weight/vet tracker, stored on-device |
+| Data Toybox |  `SerenaWuuu/data-toybox` | CSV visualizer, SQL formatter, plain-English to SQL helper |
+| Star Gazer |  `SerenaWuuu/star-gazer` | Tonight's sky chart + night-sky photo mode |
+| Cloud Toolkit |  `SerenaWuuu/cloud-toolkit` | BigQuery/Azure Synapse cost estimator, resource naming helper |
+| Cat Care Log |  `SerenaWuuu/cat-care-log` | Feeding/weight/vet tracker, stored on-device |
 
 ## License
 

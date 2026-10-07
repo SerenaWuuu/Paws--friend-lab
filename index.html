@@ -23,7 +23,7 @@
     <nav class="nav-links" aria-label="Main">
       <a href="#scanner">Scanner</a>
       <a href="#roadmap">Roadmap</a>
-      <a class="gh-link" href="https://github.com/SerenaWuu/Paws--friend-lab" target="_blank" rel="noopener">GitHub &#8599;</a>
+      <a class="gh-link" href="https://github.com/SerenaWuuu/Paws--friend-lab" target="_blank" rel="noopener">GitHub &#8599;</a>
     </nav>
   </div>
 </header>
@@ -41,7 +41,7 @@
         <p class="hero-sub">Paws Friend Lab is a growing toolbox of genuinely useful pet tech. First up: a breed scanner that identifies cats and dogs right in your browser. No uploads, no accounts, no funny business.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#scanner">Try the scanner</a>
-          <a class="btn btn-ghost" href="https://github.com/SerenaWuu/Paws--friend-lab" target="_blank" rel="noopener">Star on GitHub</a>
+          <a class="btn btn-ghost" href="https://github.com/SerenaWuuu/Paws--friend-lab" target="_blank" rel="noopener">Star on GitHub</a>
         </div>
       </div>
       <div class="hero-card reveal">
@@ -68,7 +68,7 @@
         <div class="step reveal">
           <span class="step-num">2</span>
           <h3>On-device AI takes a look</h3>
-          <p>A neural network runs entirely on your phone and guesses the breed about once a second. Nothing is sent anywhere.</p>
+          <p>Two neural networks run entirely on your phone: a quick one sorts cats from dogs, then a cat-breed specialist names the breed. Nothing is sent anywhere.</p>
         </div>
         <div class="step reveal">
           <span class="step-num">3</span>
@@ -85,11 +85,17 @@
       <div class="section-head reveal">
         <p class="kicker">Tool 001</p>
         <h2>Breed Scanner</h2>
-        <p>Knows 118 dog breeds, 5 cat breeds, and 8 wild cousins it will politely decline to call pets.</p>
+        <p>Knows 118 dog breeds and 60+ cat breeds, plus a few wild cousins it will politely decline to call pets.</p>
       </div>
 
       <div class="scanner-shell reveal">
-        <div class="tabs" role="tablist" aria-label="Scanner mode">
+        <div class="tabs main-tabs" role="tablist" aria-label="Lab tools">
+          <button class="tab active" id="maintab-scanner" role="tab" aria-selected="true">&#128270; Breed Scanner</button>
+          <button class="tab" id="maintab-weight" role="tab" aria-selected="false">&#9878; Weight Tracker</button>
+        </div>
+
+        <div id="pane-scanner" role="tabpanel" aria-label="Breed scanner">
+        <div class="tabs sub-tabs" role="tablist" aria-label="Scanner mode">
           <button class="tab active" id="tab-camera" role="tab" aria-selected="true">Live camera</button>
           <button class="tab" id="tab-upload" role="tab" aria-selected="false">Upload photo</button>
         </div>
@@ -125,6 +131,100 @@
           <span aria-hidden="true">&#128274;</span>
           <span><strong>Private by design.</strong> The AI runs 100% on your device. Your pet photos never leave your phone, not even for a second.</span>
         </div>
+        </div><!-- /pane-scanner -->
+
+        <!-- WEIGHT TRACKER -->
+        <div id="pane-weight" role="tabpanel" aria-label="Weight tracker" hidden>
+          <div class="w-head">
+            <div class="w-avatar" id="wAvatar">&#128049;</div>
+            <div class="w-head-text">
+              <h3 id="wCatName">Weight Tracker</h3>
+              <p id="wCatMeta">Add a cat to begin</p>
+            </div>
+            <div class="w-streak" id="wStreakPill">&#128049;</div>
+          </div>
+
+          <div class="tabs sub-tabs" role="tablist" aria-label="Tracker sections">
+            <button class="tab active" data-wtab="log" role="tab" aria-selected="true">Log</button>
+            <button class="tab" data-wtab="trends" role="tab" aria-selected="false">Trends</button>
+            <button class="tab" data-wtab="meds" role="tab" aria-selected="false">Meds</button>
+            <button class="tab" data-wtab="cats" role="tab" aria-selected="false">Cats</button>
+          </div>
+
+          <div class="w-subpane" id="wsub-log" role="tabpanel" aria-label="Quick log">
+            <div class="w-card">
+              <h4>&#128049; Quick log <span class="w-sub">three taps, done</span></h4>
+              <div class="w-loggrid">
+                <button class="w-logbtn" id="wLogFeeding"><span>&#127860;</span>Feeding</button>
+                <button class="w-logbtn" id="wLogWater"><span>&#128167;</span>Water</button>
+                <button class="w-logbtn" id="wLogWeight"><span>&#9878;</span>Weight</button>
+                <button class="w-logbtn" id="wLogLitter"><span>&#128169;</span>Litter</button>
+                <button class="w-logbtn" id="wLogVet"><span>&#127973;</span>Vet</button>
+                <button class="w-logbtn" id="wLogMed"><span>&#128138;</span>Meds</button>
+              </div>
+            </div>
+            <div class="w-card">
+              <h4>&#128210; Today</h4>
+              <div id="wTodayList"></div>
+            </div>
+          </div>
+
+          <div class="w-subpane" id="wsub-trends" role="tabpanel" aria-label="Trends" hidden>
+            <div class="w-streakbanner" id="wStreakBanner">
+              <span style="font-size:1.6rem">&#128293;</span>
+              <span class="w-bignum" id="wStreakNum">&ndash;</span>
+              <span id="wStreakText" style="font-size:0.9rem"></span>
+            </div>
+            <div class="w-card">
+              <h4>&#9878; Weight trend</h4>
+              <div class="w-chartwrap" id="wWeightWrap"><canvas id="wWeightChart"></canvas></div>
+            </div>
+            <div class="w-card">
+              <h4>&#127860; Meals per day <span class="w-sub">last 7 days</span></h4>
+              <div class="w-chartwrap w-chartwrap-sm" id="wMealsWrap"><canvas id="wMealsChart"></canvas></div>
+            </div>
+            <div class="w-card">
+              <h4>&#128467; This week</h4>
+              <div id="wWeekTimeline"></div>
+            </div>
+          </div>
+
+          <div class="w-subpane" id="wsub-meds" role="tabpanel" aria-label="Medications" hidden>
+            <div class="w-card w-note">
+              <p><strong>&#9200; How reminders work.</strong> This page can nudge you while it is open. It cannot buzz your phone on its own, because it is a static page with no background powers. Export a medication to your phone calendar for real alerts.</p>
+            </div>
+            <div id="wMedList"></div>
+            <button class="btn btn-primary btn-block" id="wAddMed">&#65291; Add medication</button>
+          </div>
+
+          <div class="w-subpane" id="wsub-cats" role="tabpanel" aria-label="Cats and data" hidden>
+            <div class="w-card">
+              <h4>&#128008; Your cats</h4>
+              <div class="w-catchips" id="wCatChips"></div>
+            </div>
+            <div class="w-card" id="wProfileCard"></div>
+            <div class="w-card">
+              <h4>&#128190; Your data</h4>
+              <p class="w-hint">Everything lives in this browser only. Export a backup before you switch devices.</p>
+              <div class="w-btnrow">
+                <button class="btn btn-ghost" id="wExportBtn">&#11015; Export</button>
+                <button class="btn btn-ghost" id="wImportBtn">&#11014; Import</button>
+                <input type="file" id="wImportInput" accept="application/json,.json" hidden>
+              </div>
+              <button class="btn btn-danger btn-block" id="wWipeBtn">Delete all data</button>
+            </div>
+          </div>
+
+          <div class="w-sheet-backdrop" id="wSheetBackdrop"></div>
+          <div class="w-sheet" id="wSheet" role="dialog" aria-modal="true">
+            <div class="w-grab"></div>
+            <h4 id="wSheetTitle"></h4>
+            <p class="w-sheet-sub" id="wSheetSub"></p>
+            <div id="wSheetBody"></div>
+          </div>
+          <div class="w-toast" id="wToast"></div>
+        </div><!-- /pane-weight -->
+
       </div>
     </div>
   </section>
@@ -147,7 +247,7 @@
             <li>CSV visualizer: drag in a CSV, get charts instantly</li>
             <li>SQL formatter and a plain-English to SQL helper</li>
           </ul>
-          <p class="repo-name">github.com/SerenaWuu/data-toybox</p>
+          <p class="repo-name">github.com/SerenaWuuu/data-toybox</p>
         </div>
         <div class="roadmap-card reveal">
           <span class="soon">Coming soon</span>
@@ -158,7 +258,7 @@
             <li>Tonight's sky chart for your location and time</li>
             <li>Night-sky photo mode to name what you captured</li>
           </ul>
-          <p class="repo-name">github.com/SerenaWuu/star-gazer</p>
+          <p class="repo-name">github.com/SerenaWuuu/star-gazer</p>
         </div>
         <div class="roadmap-card reveal">
           <span class="soon">Coming soon</span>
@@ -169,7 +269,7 @@
             <li>BigQuery and Azure Synapse cost estimator</li>
             <li>A resource naming helper that follows the actual rules</li>
           </ul>
-          <p class="repo-name">github.com/SerenaWuu/cloud-toolkit</p>
+          <p class="repo-name">github.com/SerenaWuuu/cloud-toolkit</p>
         </div>
         <div class="roadmap-card reveal">
           <span class="soon">Coming soon</span>
@@ -180,7 +280,7 @@
             <li>Feeding, weight, and vet visit tracking</li>
             <li>Everything stored privately on your own device</li>
           </ul>
-          <p class="repo-name">github.com/SerenaWuu/cat-care-log</p>
+          <p class="repo-name">github.com/SerenaWuuu/cat-care-log</p>
         </div>
       </div>
     </div>
@@ -194,13 +294,16 @@
       <svg viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="62" rx="24" ry="20" fill="#ff6b4a"/><circle cx="26" cy="36" r="10" fill="#ff6b4a"/><circle cx="43" cy="28" r="10" fill="#ff6b4a"/><circle cx="60" cy="28" r="10" fill="#ff6b4a"/><circle cx="76" cy="38" r="10" fill="#ff6b4a"/></svg>
       <span>Paws Friend Lab</span>
     </div>
-    <p>Batch 01: Breed Scanner. More tools brewing. Open source under the <a href="https://github.com/SerenaWuu/Paws--friend-lab/blob/main/LICENSE" target="_blank" rel="noopener">MIT license</a>.</p>
-    <p>&#169; <span id="year">2026</span> Serena Wu. <a href="https://github.com/SerenaWuu/Paws--friend-lab" target="_blank" rel="noopener">GitHub &#8599;</a></p>
+    <p>Batch 01: Breed Scanner. More tools brewing. Open source under the <a href="https://github.com/SerenaWuuu/Paws--friend-lab/blob/main/LICENSE" target="_blank" rel="noopener">MIT license</a>.</p>
+    <p>&#169; <span id="year">2026</span> Serena Wu. <a href="https://github.com/SerenaWuuu/Paws--friend-lab" target="_blank" rel="noopener">GitHub &#8599;</a></p>
   </div>
 </footer>
 
 <script src="js/labels.js"></script>
+<script src="js/fx.js"></script>
 <script src="js/scanner.js"></script>
 <script src="js/main.js"></script>
+<script src="js/weight-store.js"></script>
+<script src="js/weight.js"></script>
 </body>
 </html>
