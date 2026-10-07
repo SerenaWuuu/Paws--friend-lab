@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Paws Friend Lab: Breed Scanner</title>
+  <meta name="description" content="Paws Friend Lab is a growing toolbox of genuinely useful pet tech. First tool: a breed scanner that identifies cats and dogs right in your browser.">
+  <meta name="theme-color" content="#fff8f0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cellipse cx='50' cy='62' rx='24' ry='20' fill='%23ff6b4a'/%3E%3Ccircle cx='26' cy='36' r='10' fill='%23ff6b4a'/%3E%3Ccircle cx='43' cy='28' r='10' fill='%23ff6b4a'/%3E%3Ccircle cx='60' cy='28' r='10' fill='%23ff6b4a'/%3E%3Ccircle cx='76' cy='38' r='10' fill='%23ff6b4a'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="Paws Friend Lab home">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="62" rx="24" ry="20" fill="#ff6b4a"/><circle cx="26" cy="36" r="10" fill="#ff6b4a"/><circle cx="43" cy="28" r="10" fill="#ff6b4a"/><circle cx="60" cy="28" r="10" fill="#ff6b4a"/><circle cx="76" cy="38" r="10" fill="#ff6b4a"/></svg>
+      <span>Paws Friend Lab</span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#scanner">Scanner</a>
+      <a href="#roadmap">Roadmap</a>
+      <a class="gh-link" href="https://github.com/SerenaWuu/Paws--friend-lab" target="_blank" rel="noopener">GitHub &#8599;</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="hero-paw-bg one" viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="62" rx="24" ry="20" fill="#2e2118"/><circle cx="26" cy="36" r="10" fill="#2e2118"/><circle cx="43" cy="28" r="10" fill="#2e2118"/><circle cx="60" cy="28" r="10" fill="#2e2118"/><circle cx="76" cy="38" r="10" fill="#2e2118"/></svg>
+    <svg class="hero-paw-bg two" viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="62" rx="24" ry="20" fill="#2e2118"/><circle cx="26" cy="36" r="10" fill="#2e2118"/><circle cx="43" cy="28" r="10" fill="#2e2118"/><circle cx="60" cy="28" r="10" fill="#2e2118"/><circle cx="76" cy="38" r="10" fill="#2e2118"/></svg>
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <span class="pill">Batch 01 is live</span>
+        <h1>Point. Scan.<br><span class="accent">Know your floof.</span></h1>
+        <p class="hero-sub">Paws Friend Lab is a growing toolbox of genuinely useful pet tech. First up: a breed scanner that identifies cats and dogs right in your browser. No uploads, no accounts, no funny business.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#scanner">Try the scanner</a>
+          <a class="btn btn-ghost" href="https://github.com/SerenaWuu/Paws--friend-lab" target="_blank" rel="noopener">Star on GitHub</a>
+        </div>
+      </div>
+      <div class="hero-card reveal">
+        <svg id="hero-paw" viewBox="0 0 100 100" role="img" aria-label="A friendly paw. Boop it."><ellipse cx="50" cy="62" rx="24" ry="20" fill="#ff6b4a"/><circle cx="26" cy="36" r="10" fill="#ff6b4a"/><circle cx="43" cy="28" r="10" fill="#ff6b4a"/><circle cx="60" cy="28" r="10" fill="#ff6b4a"/><circle cx="76" cy="38" r="10" fill="#ff6b4a"/></svg>
+        <p><strong>The lab mascot.</strong> Boop the paw. It does nothing useful, and that is the point. The scanner below is the useful part.</p>
+        <p id="paw-secret" hidden>You found the secret. Five boops. The lab respects your dedication.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker">How it works</p>
+        <h2>Three steps to breed enlightenment</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step-num">1</span>
+          <h3>Open the scanner</h3>
+          <p>Point your camera at the culprit, or upload a photo from your camera roll. Rear camera preferred, dramatic lighting optional.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-num">2</span>
+          <h3>On-device AI takes a look</h3>
+          <p>A neural network runs entirely on your phone and guesses the breed about once a second. Nothing is sent anywhere.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-num">3</span>
+          <h3>Get the verdict</h3>
+          <p>Top three guesses with confidence bars, plus a quip. The quip is arguably the best part.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCANNER -->
+  <section class="section" id="scanner">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker">Tool 001</p>
+        <h2>Breed Scanner</h2>
+        <p>Knows 118 dog breeds, 5 cat breeds, and 8 wild cousins it will politely decline to call pets.</p>
+      </div>
+
+      <div class="scanner-shell reveal">
+        <div class="tabs" role="tablist" aria-label="Scanner mode">
+          <button class="tab active" id="tab-camera" role="tab" aria-selected="true">Live camera</button>
+          <button class="tab" id="tab-upload" role="tab" aria-selected="false">Upload photo</button>
+        </div>
+
+        <!-- Camera pane -->
+        <div id="pane-camera" role="tabpanel" aria-label="Live camera scanner">
+          <div class="stage">
+            <video id="cam-video" playsinline muted autoplay aria-label="Camera preview"></video>
+            <span class="live-badge" id="cam-live" hidden>Live</span>
+            <div class="cam-controls">
+              <button class="cam-btn" id="flip-camera" aria-label="Switch camera" title="Switch camera">&#8646;</button>
+              <button class="cam-btn" id="stop-camera" aria-label="Turn camera off" title="Turn camera off">&#9209;</button>
+            </div>
+          </div>
+          <div class="scan-status" id="cam-status" hidden></div>
+          <div class="results" id="cam-results" aria-live="polite"></div>
+        </div>
+
+        <!-- Upload pane -->
+        <div id="pane-upload" role="tabpanel" aria-label="Photo upload scanner" hidden>
+          <div class="drop-zone" id="drop-zone" tabindex="0" role="button" aria-label="Upload a pet photo">
+            <div class="drop-icon" aria-hidden="true">&#128247;</div>
+            <p>Drop a pet photo here, or tap to choose one</p>
+            <small>JPG, PNG, WebP up to 12 MB</small>
+          </div>
+          <input type="file" id="file-input" accept="image/*" hidden>
+          <div class="upload-preview" id="upload-preview" hidden></div>
+          <div class="scan-status" id="upload-status" hidden></div>
+          <div class="results" id="upload-results" aria-live="polite"></div>
+        </div>
+
+        <div class="privacy-note">
+          <span aria-hidden="true">&#128274;</span>
+          <span><strong>Private by design.</strong> The AI runs 100% on your device. Your pet photos never leave your phone, not even for a second.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="section" id="roadmap">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker">Roadmap</p>
+        <h2>Brewing in the lab</h2>
+        <p>The scanner is just batch one. Here is what is next on the workbench.</p>
+      </div>
+      <div class="roadmap-grid">
+        <div class="roadmap-card reveal">
+          <span class="soon">Coming soon</span>
+          <div class="roadmap-icon" aria-hidden="true">&#128202;</div>
+          <h3>Data Toybox</h3>
+          <p>For the spreadsheets in all of us.</p>
+          <ul>
+            <li>CSV visualizer: drag in a CSV, get charts instantly</li>
+            <li>SQL formatter and a plain-English to SQL helper</li>
+          </ul>
+          <p class="repo-name">github.com/SerenaWuu/data-toybox</p>
+        </div>
+        <div class="roadmap-card reveal">
+          <span class="soon">Coming soon</span>
+          <div class="roadmap-icon" aria-hidden="true">&#128301;</div>
+          <h3>Star Gazer</h3>
+          <p>For clear nights and curious eyes.</p>
+          <ul>
+            <li>Tonight's sky chart for your location and time</li>
+            <li>Night-sky photo mode to name what you captured</li>
+          </ul>
+          <p class="repo-name">github.com/SerenaWuu/star-gazer</p>
+        </div>
+        <div class="roadmap-card reveal">
+          <span class="soon">Coming soon</span>
+          <div class="roadmap-icon" aria-hidden="true">&#9729;</div>
+          <h3>Cloud Toolkit</h3>
+          <p>For the builders watching their bills.</p>
+          <ul>
+            <li>BigQuery and Azure Synapse cost estimator</li>
+            <li>A resource naming helper that follows the actual rules</li>
+          </ul>
+          <p class="repo-name">github.com/SerenaWuu/cloud-toolkit</p>
+        </div>
+        <div class="roadmap-card reveal">
+          <span class="soon">Coming soon</span>
+          <div class="roadmap-icon" aria-hidden="true">&#128008;</div>
+          <h3>Cat Care Log</h3>
+          <p>For the world's most demanding managers.</p>
+          <ul>
+            <li>Feeding, weight, and vet visit tracking</li>
+            <li>Everything stored privately on your own device</li>
+          </ul>
+          <p class="repo-name">github.com/SerenaWuu/cat-care-log</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="62" rx="24" ry="20" fill="#ff6b4a"/><circle cx="26" cy="36" r="10" fill="#ff6b4a"/><circle cx="43" cy="28" r="10" fill="#ff6b4a"/><circle cx="60" cy="28" r="10" fill="#ff6b4a"/><circle cx="76" cy="38" r="10" fill="#ff6b4a"/></svg>
+      <span>Paws Friend Lab</span>
+    </div>
+    <p>Batch 01: Breed Scanner. More tools brewing. Open source under the <a href="https://github.com/SerenaWuu/Paws--friend-lab/blob/main/LICENSE" target="_blank" rel="noopener">MIT license</a>.</p>
+    <p>&#169; <span id="year">2026</span> Serena Wu. <a href="https://github.com/SerenaWuu/Paws--friend-lab" target="_blank" rel="noopener">GitHub &#8599;</a></p>
+  </div>
+</footer>
+
+<script src="js/labels.js"></script>
+<script src="js/scanner.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
